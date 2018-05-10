@@ -1,0 +1,16 @@
+{# extends "layout.html" #}
+{% block table %}
+	{% include "form.html"%}
+	<h3>Lunch Table</h3>
+	<br>
+	<table>
+		<tr>
+		{% for n in table_header %}
+			<th>{{n}}</th>
+		{% endfor %}
+		</tr>
+		{# put double for loop to iterate through rows of lunch entries#}
+	</table>
+
+
+{% endblock %}
