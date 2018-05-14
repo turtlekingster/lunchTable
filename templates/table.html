@@ -9,7 +9,13 @@
 			<th>{{n}}</th>
 		{% endfor %}
 		</tr>
-		{# put double for loop to iterate through rows of lunch entries#}
+		{% for entry in tableContent %}
+			<tr>
+				{% for item in entry %}
+					<td>{{item}}</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
 	</table>
 
 

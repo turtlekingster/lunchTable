@@ -3,13 +3,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 </script>
-
-	<form action='#' method="POST">
-		{{ outform.checkout(class='btn btn-success')}}
-	</form>
-
-	<form action='#' method="POST">
-		{{ inform.checkin(class='btn btn-primary') }}		
-
-	</form>
+	{% if not atLunch %}
+		<form action='#' method="POST">
+			{{ outform.checkout(class='btn btn-success')}}
+		</form>
+	{% else %}
+		<form action='#' method="POST">
+			{{ inform.checkin(class='btn btn-primary') }}
+			{{ inform.locField(placeholder="Location") }}
+			{{ inform.description(placeHolder="Description") }}
+			{{ inform.rating(placeholder="Rating") }}
+			{{ inform.calories(placeholder="Calories") }}
+			{{ inform.cost(placeholder="Cost") }}
+			
+		</form>
+	{% endif %}
 {% endblock %}

@@ -11,9 +11,13 @@ class dbhelper:
             print "host:"+ host +" ,db:" + db + " ,user:"+ user
             print e
 
-    def getTableContents(self, table, content):
+    def getTableContents(self, table, content, condition=""):
         try:
-            string = "SELECT " + content + " FROM " + table + ";"
+            string = "SELECT " + content + " FROM " + table
+            if condition != "":
+                string = string + " WHERE " + condition + ";"
+            else:
+                string = string + ";"
             self.cur.execute(string)
             return self.cur.fetchall()
         except Exception, e:
@@ -22,7 +26,7 @@ class dbhelper:
 
     def getByValue(self, table, valueName, value):
         if type(valueName) is not str:
-            raise TypeError('valueName must be a str, valueName is a '+ str(ype(valueName)))
+            raise TypeError('valueName must be a str, valueName is a '+ str(type(valueName)))
         if type(value) is not str:
             raise TypeError('value must be a str, value is a ' + str(type(value)))
         try:
@@ -80,17 +84,20 @@ class dbhelper:
 
 
     def updateEntry(self, table, valueNames, values):
+        if(len(valueNames) != len(values)):
+            raise ValueError('differing number of values and names ' + str(len(values)) + ":" + str(len(valueNames)))
         try:
-            raise ValueError('differing number of values and names')
             string ="UPDATE " + table + " SET "
-            while i < (len(valuesNames) - 1):
+            i = 1
+            while i < (len(valueNames) - 1):
                 string = string + valueNames[i] + " = " + values[i] + ", "
+                i=i+1
             string = string + valueNames[i] + " = " + values[i]
             
-            string + " WHERE " + valueNames[0] + " = " + values[0]
+            string = string + " WHERE " + valueNames[0] + " = " + values[0]
             self.cur.execute(string)
             self.db.commit()
-
+            print string
         except Exception, e:
             print "UPDATE query failed"
             print e

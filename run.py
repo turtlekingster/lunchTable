@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, flash, session, redirect, url
 from flask_wtf import FlaskForm
 from wtforms.fields.html5 import DateTimeField
 from wtforms.widgets.html5 import DateTimeInput
-from wtforms.fields import TextAreaField, StringField, DecimalField, SubmitField, PasswordField
+from wtforms.fields import TextAreaField, StringField, DecimalField, SubmitField, PasswordField, IntegerField
 from datetime import datetime
 from functools import wraps
 import lunch
@@ -27,6 +27,8 @@ class LunchCheckinForm(FlaskForm):
     locField = StringField('Location')
     description = TextAreaField('Description')
     rating = DecimalField('Rating', places=1)
+    calories = IntegerField('Calories')
+    cost = DecimalField('Cost', places=2)
     checkin = SubmitField('Checkin')
 
 class LoginForm(FlaskForm):
@@ -39,7 +41,9 @@ class NewUserForm(FlaskForm):
     password = PasswordField('Password')
     email = StringField('Email')
     create = SubmitField('Create')
-
+    
+usrHelper = users.userHelper()
+lunchHelper = lunch.lunchness() 
 
 def login_required(function_to_protect):
     @wraps(function_to_protect)
@@ -58,17 +62,14 @@ def login_required(function_to_protect):
         else:
             flash("Please log in")
             return redirect(url_for('login'))
-
     return wrapper
-
 
 @app.route("/main", methods=['POST', 'GET'])
 @login_required
 def main():
     
-    lunchHelper = lunch.lunchness()
-    tableContents = lunchHelper.getTableContents()
     columnNames = lunchHelper.getColumnNames()
+    user = usrHelper.getUser(_id=str(session['user_id']))
 
     t_headers = []
     for item in columnNames:
@@ -87,27 +88,48 @@ def main():
         print "POST REQUEST"
         #print request.values
         if 'checkout' in request.values:
-            print 'checkout'
-            outTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            check = lunchHelper.checkOut(outTime, session['user_id'])
-            print check
+            if user.atLunch:
+                print user.name + " is already at lunch!"
+            else:
+                print user.name + ' just checkedout'
+                outTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                lunchTemp = lunch.Lunch(start = outTime, user_id=str(session['user_id']))
+                check = lunchHelper.insertIntoTable(lunchTemp)
+                user = usrHelper.getUser(_id=str(session['user_id']))
+                user.checkOut()
+                usrHelper.updateUser(user)
 
         elif 'checkin' in request.values:
-            print 'checkin'
-            inTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            if not user.atLunch:
+                print user.name + " isn't at lunch!"
+            else:
+                print user.name + ' just checkedin'
+                inTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                lunchTemp = lunchHelper.getUnendedLunch(str(session['user_id']))
+                print str(type(lunchTemp))
+                print lunchTemp
+                if(lunchTemp):
+                    lunchTemp.checkIn(request.form["locField"], request.form["description"], 
+                        request.form["calories"], request.form["rating"], request.form["cost"])
+                    lunchHelper.updateLunch(lunchTemp)
+                    user.checkIn()
+                    usrHelper.updateUser(user)
 
     elif request.method == 'GET':
         print "GET REQUEST"
 
-    return render_template('template.html', table_header=t_headers, inform=checkinForm, outform=checkoutForm)
+    tableContents = lunchHelper.getEndedLunches()
+    
+    return render_template('layout.html', table_header=t_headers, inform=checkinForm, 
+            outform=checkoutForm, atLunch=user.atLunch, tableContent = tableContents)
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
-    usrHelper = users.userHelper()
     loginForm = LoginForm()
     newUserForm = NewUserForm()
     loginFailed=False
-    response = render_template('login.html', loginForm=loginForm, newUserForm=newUserForm, failed = loginFailed)
+    response = render_template('login.html', loginForm=loginForm, 
+            newUserForm=newUserForm, failed = loginFailed)
 
     if request.method == 'POST':
         username = request.form["username"]
@@ -116,7 +138,7 @@ def login():
             user = usrHelper.getUser(username)
             if not user:
                 email = request.form["email"]
-                user = users.user(name=username, _hash=password, email=email)
+                user = users.User(name=username, _hash=password, email=email)
                 user.hashpw()
                 usrHelper.addUser(user)
             else:
@@ -135,7 +157,8 @@ def login():
                 loginFailed = True
                 print "invalid password"
             if loginFailed:
-                response = render_template('login.html', loginForm=loginForm, newUserForm=newUserForm, failed = loginFailed)
+                response = render_template('login.html', loginForm=loginForm, 
+                        newUserForm=newUserForm, failed = loginFailed)
 
     return response
 
