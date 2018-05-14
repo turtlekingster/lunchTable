@@ -119,7 +119,8 @@ def main():
         print "GET REQUEST"
 
     tableContents = lunchHelper.getEndedLunches()
-    
+    for entry in tableContents:
+        print str(entry[7]) + ":" + usrHelper.getUser(_id=entry[7]).name
     return render_template('layout.html', table_header=t_headers, inform=checkinForm, 
             outform=checkoutForm, atLunch=user.atLunch, tableContent = tableContents)
 
@@ -128,6 +129,7 @@ def login():
     loginForm = LoginForm()
     newUserForm = NewUserForm()
     loginFailed=False
+    session['user_id'] = 0
     response = render_template('login.html', loginForm=loginForm, 
             newUserForm=newUserForm, failed = loginFailed)
 
@@ -165,7 +167,8 @@ def login():
 @app.route("/users", methods=['POST','GET'])
 def userTest():
     usrHelper = users.userHelper()
-    usrHelper.getUser("test")
+
+
 
 @app.route("/static/<path:filename>")
 def getStatic(filename):

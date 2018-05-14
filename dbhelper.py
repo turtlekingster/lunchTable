@@ -30,7 +30,6 @@ class dbhelper:
         if type(value) is not str:
             raise TypeError('value must be a str, value is a ' + str(type(value)))
         try:
-            print "test"
             string = "SELECT * FROM " + table + " WHERE " + valueName + "='"+ value +"';"
             self.cur.execute(string)
             return self.cur.fetchall()

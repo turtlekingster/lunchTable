@@ -71,7 +71,6 @@ class userHelper(dbhelper):
         try:
             valueNames = ["id", "name", "description", "password", "email", "atLunch"]
             values = ["'" + str(user._id) + "'", "'" + user.name + "'","'" + user.desc + "'","'" + user._hash + "'","'" + user.email + "'","'" + str(int(user.atLunch)) +"'"]
-            print "Ollo!"
             dbhelper.updateEntry(self, "users", valueNames, values)
         except Exception, e:
             print "-------In updateUser:"
