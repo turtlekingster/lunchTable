@@ -1,7 +1,11 @@
 {# extends "layout.html" #}
 {% block table %}
-	{% include "form.html"%}
-	<h3>Lunch Table</h3>
+	{% if page_name == "Lunch"%}
+		{% include "lunchform.html"%}
+	{% elif page_name == "Users"%}
+		{% include "userform.html"%}
+	{% endif %}
+	<h3>{{page_name}}</h3>
 	<br>
 	<table>
 		<tr>

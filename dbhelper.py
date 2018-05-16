@@ -81,7 +81,6 @@ class dbhelper:
         except Exception, e:
             print e
 
-
     def updateEntry(self, table, valueNames, values):
         if(len(valueNames) != len(values)):
             raise ValueError('differing number of values and names ' + str(len(values)) + ":" + str(len(valueNames)))
@@ -101,4 +100,6 @@ class dbhelper:
             print "UPDATE query failed"
             print e
             print string
-
+    
+    def __del__(self):
+        self.db.close()

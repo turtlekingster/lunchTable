@@ -1,0 +1,308 @@
+<html>
+<head>
+<title>Security + Practice Test</title>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="Sec.css">
+  <script>var questions =[{"type":"radio","question":"Harmful programs used to disrupt computer operation, gather sensitive information, or gain unauthorized access to computer systems are commonly referred to as:","answers":[{"result":false,"option":"Adware","answerid":0},{"result":true,"option":"Malware","answerid":1},{"result":false,"option":"Ransomware","answerid":2},{"result":false,"option":"Spyware","answerid":3}],"questid":0},{"type":"checkbox","question":"Which of the following statements apply to the definition of a computer virus? (Select 3 answers)","answers":[{"result":true,"option":"A self-replicating computer program containing malicious segment","answerid":0},{"result":true,"option":"Requires its host application to be run to make the virus active","answerid":1},{"result":false,"option":"A standalone malicious computer program that replicates itself over a computer network","answerid":2},{"result":false,"option":"Can run by itself without any interaction","answerid":3},{"result":true,"option":"Attaches itself to an application program or other executable component","answerid":4},{"result":false,"option":"A self-contained malicious program or code that does need a host to propagate itself","answerid":5}],"questid":1},{"type":"radio","question":"Which of the terms listed below refers to an example of a crypto-malware?","answers":[{"result":false,"option":"Backdoor","answerid":0},{"result":true,"option":"Ransomware","answerid":1},{"result":false,"option":"Keylogger","answerid":2},{"result":false,"option":"Rootkit","answerid":3}],"questid":2},{"type":"radio","question":"Malware that restricts access to a computer system by encrypting files or locking the entire system down until the user performs requested action is known as:","answers":[{"result":false,"option":"Grayware","answerid":0},{"result":false,"option":"Adware","answerid":1},{"result":true,"option":"Ransomware","answerid":2},{"result":false,"option":"Spyware","answerid":3}],"questid":3},{"type":"radio","question":"A standalone malicious computer program that typically propagates itself over a computer network to adversely affect system resources and network bandwidth is called:","answers":[{"result":false,"option":"Spyware","answerid":0},{"result":true,"option":"Worm","answerid":1},{"result":false,"option":"Trojan","answerid":2},{"result":false,"option":"Spam","answerid":3}],"questid":4},{"type":"radio","question":"A type of software that performs unwanted and harmful actions in disguise of a legitimate and useful program is known as a Trojan horse. This type of malware may act like a legitimate program and have all the expected functionalities, but apart from that it will also contain a portion of malicious code that the user is unaware of.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":5},{"type":"radio","question":"A collection of software tools used by a hacker to mask intrusion and obtain administrator-level access to a computer or computer network is known as:","answers":[{"result":true,"option":"Rootkit","answerid":0},{"result":false,"option":"Spyware","answerid":1},{"result":false,"option":"Backdoor","answerid":2},{"result":false,"option":"Trojan","answerid":3}],"questid":6},{"type":"radio","question":"Which of the following answers lists an example of spyware?","answers":[{"result":true,"option":"Keylogger","answerid":0},{"result":false,"option":"Vulnerability scanner","answerid":1},{"result":false,"option":"Computer worm","answerid":2},{"result":false,"option":"Packet sniffer","answerid":3}],"questid":7},{"type":"radio","question":"What is adware?","answers":[{"result":false,"option":"Unsolicited or undesired electronic messages","answerid":0},{"result":false,"option":"Malicious program that sends copies of itself to other computers on the network","answerid":1},{"result":true,"option":"Software that displays advertisements","answerid":2},{"result":false,"option":"Malicious software that collects information about users without their knowledge","answerid":3}],"questid":8},{"type":"radio","question":"Malicious software collecting information about users without their knowledge/consent is known as:","answers":[{"result":false,"option":"Crypto-malware","answerid":0},{"result":false,"option":"Adware","answerid":1},{"result":false,"option":"Ransomware","answerid":2},{"result":true,"option":"Spyware","answerid":3}],"questid":9},{"type":"radio","question":"A malware-infected networked host under remote control of a hacker is commonly referred to as:","answers":[{"result":false,"option":"Trojan","answerid":0},{"result":false,"option":"Worm","answerid":1},{"result":true,"option":"Bot","answerid":2},{"result":false,"option":"Honeypot","answerid":3}],"questid":10},{"type":"radio","question":"Which of the terms listed below applies to a collection of intermediary compromised systems that are used as a platform for a DDoS attack?","answers":[{"result":false,"option":"Honeynet","answerid":0},{"result":true,"option":"Botnet","answerid":1},{"result":false,"option":"Quarantine network","answerid":2},{"result":false,"option":"Malware","answerid":3}],"questid":11},{"type":"radio","question":"Which type of Trojan enables unauthorized remote access to a compromised system?","answers":[{"result":false,"option":"pcap","answerid":0},{"result":true,"option":"RAT","answerid":1},{"result":false,"option":"MaaS","answerid":2},{"result":false,"option":"pfSense","answerid":3}],"questid":12},{"type":"radio","question":"Malicious code activated by a specific event is called:","answers":[{"result":false,"option":"Backdoor","answerid":0},{"result":true,"option":"Logic bomb","answerid":1},{"result":false,"option":"Dropper","answerid":2},{"result":false,"option":"Retrovirus","answerid":3}],"questid":13},{"type":"radio","question":"Which of the following answers refers to an undocumented (and often legitimate) way of gaining access to a program, online service, or an entire computer system?","answers":[{"result":false,"option":"Logic bomb","answerid":0},{"result":false,"option":"Trojan horse","answerid":1},{"result":false,"option":"Rootkit","answerid":2},{"result":true,"option":"Backdoor","answerid":3}],"questid":14},{"type":"radio","question":"An unauthorized practice of obtaining confidential information by manipulating people into disclosing sensitive data is referred to as:","answers":[{"result":false,"option":"Shoulder surfing","answerid":0},{"result":false,"option":"Privilege escalation","answerid":1},{"result":true,"option":"Social engineering","answerid":2},{"result":false,"option":"Penetration testing","answerid":3}],"questid":15},{"type":"checkbox","question":"A fraudulent email requesting its recipient to reveal sensitive information (e.g. user name and password) used later by an attacker for the purpose of identity theft is an example of: (Select all that apply)","answers":[{"result":true,"option":"Phishing","answerid":0},{"result":false,"option":"Watering hole attack","answerid":1},{"result":true,"option":"Social engineering","answerid":2},{"result":false,"option":"Bluejacking","answerid":3},{"result":false,"option":"Vishing","answerid":4}],"questid":16},{"type":"radio","question":"A social engineering technique whereby attackers under disguise of legitimate request attempt to gain access to confidential information they shouldn't have access to is commonly referred to as:","answers":[{"result":true,"option":"Phishing","answerid":0},{"result":false,"option":"Privilege escalation","answerid":1},{"result":false,"option":"Backdoor access","answerid":2},{"result":false,"option":"Shoulder surfing","answerid":3}],"questid":17},{"type":"radio","question":"Phishing scams targeting a specific group of people are referred to as:","answers":[{"result":false,"option":"Vishing","answerid":0},{"result":true,"option":"Spear phishing","answerid":1},{"result":false,"option":"Spoofing","answerid":2},{"result":false,"option":"Whaling","answerid":3}],"questid":18},{"type":"radio","question":"Phishing scams targeting people holding high positions in an organization or business are known as:","answers":[{"result":false,"option":"Vishing","answerid":0},{"result":false,"option":"Bluesnarfing","answerid":1},{"result":true,"option":"Whaling","answerid":2},{"result":false,"option":"Bluejacking","answerid":3},{"result":false,"option":"Pharming","answerid":4}],"questid":19},{"type":"radio","question":"The practice of using a telephone system to manipulate user into disclosing confidential information is called:","answers":[{"result":false,"option":"Whaling","answerid":0},{"result":false,"option":"Spear phishing","answerid":1},{"result":true,"option":"Vishing","answerid":2},{"result":false,"option":"Pharming","answerid":3}],"questid":20},{"type":"radio","question":"What is tailgating?","answers":[{"result":false,"option":"Acquiring unauthorized access to confidential data","answerid":0},{"result":false,"option":"Looking over someone's shoulder to get information","answerid":1},{"result":true,"option":"Gaining unauthorized access to restricted areas by following another person","answerid":2},{"result":false,"option":"Manipulating a user into disclosing confidential information","answerid":3}],"questid":21},{"type":"radio","question":"Which social engineering attack relies on identity theft?","answers":[{"result":true,"option":"Impersonation","answerid":0},{"result":false,"option":"Dumpster diving","answerid":1},{"result":false,"option":"Watering hole attack","answerid":2},{"result":false,"option":"Shoulder surfing","answerid":3}],"questid":22},{"type":"radio","question":"In computer security, the term 'Dumpster diving' is used to describe a practice of sifting through trash for discarded documents containing sensitive data.  Found documents containing names and surnames of the employees along with the information about positions held in the company and other data can be used to facilitate social engineering attacks. Having the documents shredded or incinerated before disposal makes dumpster diving less effective and mitigates the risk of social engineering attacks.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":23},{"type":"radio","question":"A situation in which an unauthorized person can view another user's display or keyboard to learn their password or other confidential information is referred to as:","answers":[{"result":false,"option":"Spear phishing","answerid":0},{"result":false,"option":"Tailgating","answerid":1},{"result":true,"option":"Shoulder surfing","answerid":2},{"result":false,"option":"Spoofing","answerid":3}],"questid":24},{"type":"radio","question":"Privacy filter (a.k.a. privacy screen) is a protective overlay placed on the computer screen that narrows the viewing angle, so the screen content is only visible directly in front of the monitor and cannot be seen by others nearby. Privacy filter is one of the countermeasures against shoulder surfing.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":25},{"type":"radio","question":"An email message containing a warning related to a non-existent computer security threat, asking a user to delete system files falsely identified as malware, and/or prompting them to share the message with others would be an example of:","answers":[{"result":false,"option":"Vishing","answerid":0},{"result":false,"option":"Impersonation","answerid":1},{"result":true,"option":"Virus hoax","answerid":2},{"result":false,"option":"Phishing","answerid":3}],"questid":26},{"type":"radio","question":"Which of the terms listed below refers to a platform used for watering hole attacks?","answers":[{"result":false,"option":"Mail gateways","answerid":0},{"result":true,"option":"Websites","answerid":1},{"result":false,"option":"PBX systems","answerid":2},{"result":false,"option":"Web browsers","answerid":3}],"questid":27},{"type":"checkbox","question":"Which social engineering principles apply to the following attack scenario? (Select 3 answers)  An attacker impersonates a company's managing staff member to manipulate a lower rank employee into disclosing confidential data. The attacker informs the victim that the information is essential for a task that needs to be completed within the business hours on the same day and mentions potential financial losses for the company in case the victim refuses to comply.","answers":[{"result":true,"option":"Urgency","answerid":0},{"result":false,"option":"Familiarity","answerid":1},{"result":true,"option":"Authority","answerid":2},{"result":false,"option":"Consensus","answerid":3},{"result":true,"option":"Intimidation","answerid":4},{"result":false,"option":"Scarcity","answerid":5}],"questid":28},{"type":"checkbox","question":"Which social engineering principles apply to the following attack scenario? (Select 3 answers)  An attacker impersonating a software beta tester replies to a victim's post in a forum thread discussing the best options for affordable productivity software. A while later, he/she follows up by sending the victim private message mentioning the discussion thread and offering free access to a closed beta version of a fake office app.","answers":[{"result":false,"option":"Authority","answerid":0},{"result":false,"option":"Intimidation","answerid":1},{"result":false,"option":"Consensus","answerid":2},{"result":true,"option":"Scarcity","answerid":3},{"result":true,"option":"Familiarity","answerid":4},{"result":true,"option":"Trust","answerid":5},{"result":false,"option":"Urgency","answerid":6}],"questid":29},{"type":"radio","question":"Which social engineering principle applies to the following attack scenario?  While conducting a web research that would help in making a better purchasing decision, a user visits series of Facebook pages and blogs containing fake reviews and testimonials in favor of a paid app intentionally infected with malware.","answers":[{"result":false,"option":"Scarcity","answerid":0},{"result":false,"option":"Authority","answerid":1},{"result":true,"option":"Consensus","answerid":2},{"result":false,"option":"Intimidation","answerid":3},{"result":false,"option":"Urgency","answerid":4}],"questid":30},{"type":"radio","question":"An attempt to flood the bandwidth or resources of a targeted system so that it becomes overwhelmed with false requests and in result doesn't have time or resources to handle legitimate requests is called:","answers":[{"result":false,"option":"Bluesnarfing","answerid":0},{"result":false,"option":"MITM attack","answerid":1},{"result":false,"option":"Session hijacking","answerid":2},{"result":true,"option":"DoS attack","answerid":3}],"questid":31},{"type":"radio","question":"As opposed to the simple Denial of Service (DoS) attacks that usually are performed from a single system, a Distributed Denial of Service (DDoS) attack uses multiple compromised computer systems to perform the attack against its target. The intermediary systems that are used as platform for the attack are the secondary victims of the DDoS attack; they are often referred to as zombies, and collectively as a botnet.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":32},{"type":"radio","question":"Which of the following attacks relies on intercepting and altering data sent between two networked hosts?","answers":[{"result":false,"option":"Zero-day attack","answerid":0},{"result":true,"option":"MITM attack","answerid":1},{"result":false,"option":"Watering hole attack","answerid":2},{"result":false,"option":"Replay attack","answerid":3}],"questid":33},{"type":"radio","question":"A type of exploit that relies on overwriting contents of memory to cause unpredictable results in an application is known as:","answers":[{"result":false,"option":"IV attack","answerid":0},{"result":false,"option":"SQL injection","answerid":1},{"result":true,"option":"Buffer overflow","answerid":2},{"result":false,"option":"Fuzz test","answerid":3}],"questid":34},{"type":"radio","question":"Entry fields of web forms lacking input validation are vulnerable to what kind of attacks?","answers":[{"result":false,"option":"Replay attacks","answerid":0},{"result":true,"option":"SQL injection attacks","answerid":1},{"result":false,"option":"Brute-force attacks","answerid":2},{"result":false,"option":"Dictionary attacks","answerid":3}],"questid":35},{"type":"radio","question":"Which of the answers listed below refers to a common target of cross-site scripting (XSS)?","answers":[{"result":false,"option":"Physical security","answerid":0},{"result":false,"option":"Alternate sites","answerid":1},{"result":true,"option":"Dynamic web pages","answerid":2},{"result":false,"option":"Removable storage","answerid":3}],"questid":36},{"type":"radio","question":"Cross-site request forgery (CSRF/XSRF) is a security exploit that allows for infecting a website with malicious code. The malicious code, often in the form of JavaScript, can then be sent to the unsuspecting user and executed via the user's web browser application.","answers":[{"result":false,"option":"True","answerid":0},{"result":true,"option":"False","answerid":1}],"questid":37},{"type":"checkbox","question":"Which type of attack allows for tricking a user into sending unauthorized commands to a web application? (Select 2 answers)","answers":[{"result":false,"option":"IRC","answerid":0},{"result":true,"option":"CSRF","answerid":1},{"result":false,"option":"XSS","answerid":2},{"result":true,"option":"XSRF","answerid":3},{"result":false,"option":"CSR","answerid":4}],"questid":38},{"type":"checkbox","question":"Which of the following facilitate(s) privilege escalation attacks? (Select all that apply)","answers":[{"result":true,"option":"System/application vulnerability","answerid":0},{"result":false,"option":"Distributed Denial of Service (DDoS)","answerid":1},{"result":true,"option":"Social engineering techniques","answerid":2},{"result":false,"option":"Attribute-Based Access Control (ABAC)","answerid":3},{"result":true,"option":"System/application misconfiguration","answerid":4}],"questid":39},{"type":"radio","question":"An attacker managed to associate his/her MAC address with the IP address of the default gateway. In result, a targeted host is sending network traffic to the attacker's IP address instead of the IP address of the default gateway. Based on the given info, which type of attack is taking place in this scenario?","answers":[{"result":true,"option":"ARP poisoning","answerid":0},{"result":false,"option":"Replay attack","answerid":1},{"result":false,"option":"Cross-site request forgery","answerid":2},{"result":false,"option":"DNS poisoning","answerid":3}],"questid":40},{"type":"radio","question":"Which of the attack types listed below relies on the amplification effect?","answers":[{"result":false,"option":"Zero-day attack","answerid":0},{"result":true,"option":"DDoS attack","answerid":1},{"result":false,"option":"Brute-force attack","answerid":2},{"result":false,"option":"MITM attack","answerid":3}],"questid":41},{"type":"radio","question":"Remapping a domain name to a rogue IP address is an example of what kind of exploit?","answers":[{"result":true,"option":"DNS poisoning","answerid":0},{"result":false,"option":"Domain hijacking","answerid":1},{"result":false,"option":"ARP poisoning","answerid":2},{"result":false,"option":"URL hijacking","answerid":3}],"questid":42},{"type":"radio","question":"The term 'Domain hijacking' refers to a situation in which a domain registrant due to unlawful actions of third parties loses control over his/her domain name.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":43},{"type":"radio","question":"Which of the terms listed below refers to a computer security exploit that takes advantage of vulnerabilities in a user's web browser application?","answers":[{"result":false,"option":"MTTR","answerid":0},{"result":false,"option":"MITM","answerid":1},{"result":false,"option":"MTBF","answerid":2},{"result":true,"option":"MITB","answerid":3}],"questid":44},{"type":"radio","question":"A type of attack aimed at exploiting vulnerability that is present in already released software but unknown to the software developer is called:","answers":[{"result":false,"option":"Xmas attack","answerid":0},{"result":true,"option":"Zero-day attack","answerid":1},{"result":false,"option":"IV attack","answerid":2},{"result":false,"option":"Replay attack","answerid":3}],"questid":45},{"type":"radio","question":"A replay attack occurs when an attacker intercepts user data and tries to use this information later to impersonate the user to obtain unauthorized access to resources on a network.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":46},{"type":"radio","question":"A technique that allows an attacker to authenticate to a remote server without extracting a cleartext password from the digest and use the digest instead of a password credential is known as:","answers":[{"result":true,"option":"Pass the hash","answerid":0},{"result":false,"option":"Replay attack","answerid":1},{"result":false,"option":"Hash collision","answerid":2},{"result":false,"option":"Rainbow table","answerid":3}],"questid":47},{"type":"radio","question":"In computer security, the term 'Clickjacking' refers to a malicious technique of tricking a user into clicking on something different from what the user thinks they are clicking on.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":48},{"type":"radio","question":"In a session hijacking attack, a hacker takes advantage of the session ID stored in:","answers":[{"result":false,"option":"Key escrow","answerid":0},{"result":false,"option":"Digital signature","answerid":1},{"result":true,"option":"Cookie","answerid":2},{"result":false,"option":"Firmware","answerid":3}],"questid":49},{"type":"radio","question":"The term 'URL hijacking' (a.k.a. 'Typosquatting'}, refers to a practice of registering misspelled domain name closely resembling other well established and popular domain name in hopes of getting Internet traffic from users who would make errors while typing in the URL in their web browsers.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":50},{"type":"radio","question":"A modification introduced to a computer code that changes its external behavior (e.g. to maintain compatibility between a newer OS and an older version of application software) is called:","answers":[{"result":true,"option":"Shimming","answerid":0},{"result":false,"option":"DLL injection","answerid":1},{"result":false,"option":"Refactoring","answerid":2},{"result":false,"option":"Backdoor","answerid":3}],"questid":51},{"type":"radio","question":"The practice of optimizing existing computer code without changing its external behavior is known as:","answers":[{"result":false,"option":"DLL injection","answerid":0},{"result":false,"option":"Shimming","answerid":1},{"result":false,"option":"Data Execution Prevention (DEP)","answerid":2},{"result":true,"option":"Refactoring","answerid":3}],"questid":52},{"type":"checkbox","question":"Which of the terms listed below refer(s) to software/hardware driver manipulation technique(s) that might be used to enable malware injection? (Select all that apply)","answers":[{"result":true,"option":"Refactoring","answerid":0},{"result":false,"option":"Sandboxing","answerid":1},{"result":false,"option":"Fuzz testing","answerid":2},{"result":true,"option":"Shimming","answerid":3},{"result":false,"option":"Sideloading","answerid":4}],"questid":53},{"type":"radio","question":"IP spoofing and MAC spoofing rely on falsifying what type of address?","answers":[{"result":false,"option":"Broadcast address","answerid":0},{"result":true,"option":"Source address","answerid":1},{"result":false,"option":"Loopback address","answerid":2},{"result":false,"option":"Destination address","answerid":3}],"questid":54},{"type":"radio","question":"Which of the following security protocols is the least susceptible to wireless replay attacks?","answers":[{"result":true,"option":"WPA2-CCMP","answerid":0},{"result":false,"option":"WPA-TKIP","answerid":1},{"result":false,"option":"WPA2-PSK","answerid":2},{"result":false,"option":"WPA-CCMP","answerid":3},{"result":false,"option":"WPA2-TKIP","answerid":4}],"questid":55},{"type":"radio","question":"A type of wireless attack designed to exploit vulnerabilities of WEP is known as:","answers":[{"result":false,"option":"MITM attack","answerid":0},{"result":false,"option":"Smurf attack","answerid":1},{"result":true,"option":"IV attack","answerid":2},{"result":false,"option":"Xmas attack","answerid":3}],"questid":56},{"type":"radio","question":"The term 'Evil twin' refers to a rogue Wireless Access Point (WAP) set up for eavesdropping or stealing sensitive user data. Evil twin replaces the legitimate access point and by advertising its own presence with the same Service Set Identifier (SSID, a.k.a. network name) appears as a legitimate access point to connecting hosts.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":57},{"type":"radio","question":"A wireless jamming attack is a type of:","answers":[{"result":false,"option":"Cryptographic attack","answerid":0},{"result":true,"option":"Denial of Service (Dos) attack","answerid":1},{"result":false,"option":"Brute-force attack","answerid":2},{"result":false,"option":"Downgrade attack","answerid":3}],"questid":58},{"type":"radio","question":"A solution that simplifies configuration of new wireless networks by allowing non-technical users to easily configure network security settings and add new devices to an existing network is known as:","answers":[{"result":false,"option":"WPA","answerid":0},{"result":true,"option":"WPS","answerid":1},{"result":false,"option":"WEP","answerid":2},{"result":false,"option":"WAP","answerid":3}],"questid":59},{"type":"checkbox","question":"Which of the wireless technologies listed below are deprecated and should not be used due to their known vulnerabilities? (Select 2 answers)","answers":[{"result":true,"option":"WPS","answerid":0},{"result":false,"option":"WAP","answerid":1},{"result":false,"option":"WPA2","answerid":2},{"result":false,"option":"WAF","answerid":3},{"result":true,"option":"WEP","answerid":4}],"questid":60},{"type":"radio","question":"The practice of sending unsolicited messages over Bluetooth is called:","answers":[{"result":false,"option":"SPIM","answerid":0},{"result":true,"option":"Bluejacking","answerid":1},{"result":false,"option":"Vishing","answerid":2},{"result":false,"option":"Bluesnarfing","answerid":3}],"questid":61},{"type":"radio","question":"Gaining unauthorized access to a Bluetooth device is referred to as:","answers":[{"result":false,"option":"Phishing","answerid":0},{"result":false,"option":"Bluejacking","answerid":1},{"result":false,"option":"Tailgating","answerid":2},{"result":true,"option":"Bluesnarfing","answerid":3}],"questid":62},{"type":"radio","question":"Which of the following wireless technologies enables identification and tracking of tags attached to objects?","answers":[{"result":false,"option":"WTLS","answerid":0},{"result":false,"option":"GPS","answerid":1},{"result":true,"option":"RFID","answerid":2},{"result":false,"option":"WAF","answerid":3}],"questid":63},{"type":"radio","question":"What is the name of a technology used for contactless payment transactions?","answers":[{"result":true,"option":"NFC","answerid":0},{"result":false,"option":"SDN","answerid":1},{"result":false,"option":"PED","answerid":2},{"result":false,"option":"WAP","answerid":3}],"questid":64},{"type":"radio","question":"A wireless disassociation attack is a type of:","answers":[{"result":false,"option":"Downgrade attack","answerid":0},{"result":false,"option":"Brute-force attack","answerid":1},{"result":true,"option":"Denial of Service (Dos) attack","answerid":2},{"result":false,"option":"Cryptographic attack","answerid":3}],"questid":65},{"type":"radio","question":"Which cryptographic attack relies on the concepts of probability theory?","answers":[{"result":false,"option":"KPA","answerid":0},{"result":false,"option":"Brute-force","answerid":1},{"result":false,"option":"Dictionary","answerid":2},{"result":true,"option":"Birthday","answerid":3}],"questid":66},{"type":"radio","question":"Which of the acronyms listed below refers to a cryptographic attack where the attacker has access to both the plaintext and its encrypted version?","answers":[{"result":false,"option":"KEK","answerid":0},{"result":false,"option":"POODLE","answerid":1},{"result":true,"option":"KPA","answerid":2},{"result":false,"option":"CSRF","answerid":3}],"questid":67},{"type":"radio","question":"Rainbow tables are lookup tables used to speed up the process of password guessing.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":68},{"type":"radio","question":"Which of the following answers refers to the contents of a rainbow table entry?","answers":[{"result":true,"option":"Hash/Password","answerid":0},{"result":false,"option":"IP address/Domain name","answerid":1},{"result":false,"option":"Username/Password","answerid":2},{"result":false,"option":"Account name/Hash","answerid":3}],"questid":69},{"type":"radio","question":"Which password attack takes advantage of a predefined list of words?","answers":[{"result":false,"option":"Birthday attack","answerid":0},{"result":false,"option":"Replay attack","answerid":1},{"result":true,"option":"Dictionary attack","answerid":2},{"result":false,"option":"Brute-force attack","answerid":3}],"questid":70},{"type":"radio","question":"An attack against encrypted data that relies heavily on computing power to check all possible keys and passwords until the correct one is found is known as:","answers":[{"result":false,"option":"Replay attack","answerid":0},{"result":true,"option":"Brute-force attack","answerid":1},{"result":false,"option":"Dictionary attack","answerid":2},{"result":false,"option":"Birthday attack","answerid":3}],"questid":71},{"type":"radio","question":"One of the measures for bypassing the failed logon attempt account lockout policy is to capture any relevant data that might contain the password and brute force it offline.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":72},{"type":"radio","question":"A situation where cryptographic hash function produces two different digests for the same data input is referred to as hash collision.","answers":[{"result":false,"option":"True","answerid":0},{"result":true,"option":"False","answerid":1}],"questid":73},{"type":"radio","question":"Which of the following answers lists an example of a cryptographic downgrade attack?","answers":[{"result":false,"option":"MITM","answerid":0},{"result":false,"option":"KPA","answerid":1},{"result":true,"option":"POODLE","answerid":2},{"result":false,"option":"XSRF","answerid":3}],"questid":74},{"type":"checkbox","question":"Which of the following authentication protocols offer(s) countermeasures against replay attacks? (Select all that apply)","answers":[{"result":true,"option":"IPsec","answerid":0},{"result":false,"option":"MPLS","answerid":1},{"result":false,"option":"PAP","answerid":2},{"result":true,"option":"Kerberos","answerid":3},{"result":true,"option":"CHAP","answerid":4}],"questid":75},{"type":"radio","question":"Which of the cryptographic algorithms listed below is the least vulnerable to attacks?","answers":[{"result":true,"option":"AES","answerid":0},{"result":false,"option":"DES","answerid":1},{"result":false,"option":"RC4","answerid":2},{"result":false,"option":"3DES","answerid":3}],"questid":76},{"type":"radio","question":"Which of the following cryptographic hash functions is the least vulnerable to attacks?","answers":[{"result":false,"option":"SHA-1","answerid":0},{"result":false,"option":"RIPEMD","answerid":1},{"result":true,"option":"SHA-512","answerid":2},{"result":false,"option":"MD5","answerid":3}],"questid":77},{"type":"radio","question":"Which statements best describe the attributes of a script kiddie? (Select 2 answers)","answers":[{"result":false,"option":"Motivated by money","answerid":0},{"result":true,"option":"Low level of technical sophistication","answerid":1},{"result":false,"option":"Motivated by ideology","answerid":2},{"result":false,"option":"High level of technical sophistication","answerid":3},{"result":true,"option":"Lack of extensive resources/funding","answerid":4}],"questid":78},{"type":"radio","question":"A person who breaks into a computer network or system for a politically or socially motivated purpose is typically described as:","answers":[{"result":false,"option":"Insider","answerid":0},{"result":false,"option":"Competitor","answerid":1},{"result":true,"option":"Hacktivist","answerid":2},{"result":false,"option":"Script kiddie","answerid":3}],"questid":79},{"type":"radio","question":"Which of the following terms best describes a threat actor type whose sole intent behind breaking into a computer system or network is monetary gain?","answers":[{"result":false,"option":"Hacktivist","answerid":0},{"result":false,"option":"Script kiddie","answerid":1},{"result":true,"option":"Organized crime","answerid":2},{"result":false,"option":"Competition","answerid":3}],"questid":80},{"type":"checkbox","question":"Which statements best describe the attributes of an APT? (Select 3 answers)","answers":[{"result":false,"option":"Lack of extensive resources/funding","answerid":0},{"result":true,"option":"High level of technical sophistication","answerid":1},{"result":true,"option":"Extensive amount of resources/funding","answerid":2},{"result":false,"option":"Threat actors are individuals","answerid":3},{"result":false,"option":"Low level of technical sophistication","answerid":4},{"result":true,"option":"Threat actors are governments/nation states","answerid":5}],"questid":81},{"type":"radio","question":"Which term best describes a disgruntled employee abusing legitimate access to company's internal resources?","answers":[{"result":false,"option":"Script kiddie","answerid":0},{"result":true,"option":"Insider threat","answerid":1},{"result":false,"option":"Hacktivist","answerid":2},{"result":false,"option":"Organized crime","answerid":3}],"questid":82},{"type":"radio","question":"Which of the following terms best describes a type of threat actor that engages in illegal activities to get the know-how and gain market advantage?","answers":[{"result":false,"option":"Insiders","answerid":0},{"result":false,"option":"Nation states/APT","answerid":1},{"result":false,"option":"Organized crime","answerid":2},{"result":true,"option":"Competitors","answerid":3}],"questid":83},{"type":"checkbox","question":"Which of the statements listed below describe the purpose behind collecting OSINT? (Select 3 answers)","answers":[{"result":true,"option":"Gaining advantage over competitors","answerid":0},{"result":true,"option":"Passive reconnaissance in penetration testing","answerid":1},{"result":false,"option":"Application whitelisting/blacklisting","answerid":2},{"result":true,"option":"Preparation before launching a cyberattack","answerid":3},{"result":false,"option":"Disabling unnecessary ports and services","answerid":4},{"result":false,"option":"Active reconnaissance in penetration testing","answerid":5}],"questid":84},{"type":"radio","question":"In penetration testing, active reconnaissance involves gathering any type of publicly available information that can be used later for exploiting vulnerabilities found in the targeted system.","answers":[{"result":false,"option":"True","answerid":0},{"result":true,"option":"False","answerid":1}],"questid":85},{"type":"radio","question":"In penetration testing, passive reconnaissance relies on gathering information on the targeted system with the use of various non-invasive software tools and techniques, such as pinging, port scanning, or OS fingerprinting.","answers":[{"result":false,"option":"True","answerid":0},{"result":true,"option":"False","answerid":1}],"questid":86},{"type":"radio","question":"In penetration testing, the practice of using one compromised system as a platform for further attacks on other systems on the same network is known as:","answers":[{"result":false,"option":"Initial exploitation","answerid":0},{"result":true,"option":"Pivoting","answerid":1},{"result":false,"option":"Escalation of privilege","answerid":2},{"result":false,"option":"Gray-box testing","answerid":3}],"questid":87},{"type":"radio","question":"Penetration test of a computer system without the prior knowledge on how the system that is to be tested works is commonly referred to as black-box testing.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":88},{"type":"radio","question":"Penetration test performed by an authorized professional with the full prior knowledge on how the system that is to be tested works is called:","answers":[{"result":false,"option":"Black-hat hacking","answerid":0},{"result":true,"option":"White-box testing","answerid":1},{"result":false,"option":"Black-box testing","answerid":2},{"result":false,"option":"White-hat hacking","answerid":3}],"questid":89},{"type":"radio","question":"Which of the following terms is used to describe a type of penetration test in which the person conducting the test has a limited access to information on the internal workings of the targeted system?","answers":[{"result":false,"option":"Black-box testing","answerid":0},{"result":false,"option":"Fuzz testing","answerid":1},{"result":true,"option":"Gray-box testing","answerid":2},{"result":false,"option":"White-box testing","answerid":3}],"questid":90},{"type":"checkbox","question":"Penetration testing: (Select all that apply)","answers":[{"result":true,"option":"Bypasses security controls","answerid":0},{"result":false,"option":"Only identifies lack of security controls","answerid":1},{"result":true,"option":"Actively tests security controls","answerid":2},{"result":true,"option":"Exploits vulnerabilities","answerid":3},{"result":false,"option":"Passively tests security controls","answerid":4}],"questid":91},{"type":"checkbox","question":"Vulnerability scanning: (Select all that apply)","answers":[{"result":true,"option":"Identifies lack of security controls","answerid":0},{"result":false,"option":"Actively tests security controls","answerid":1},{"result":true,"option":"Identifies common misconfigurations","answerid":2},{"result":false,"option":"Exploits vulnerabilities","answerid":3},{"result":true,"option":"Passively tests security controls","answerid":4}],"questid":92},{"type":"radio","question":"A malfunction in preprogrammed sequential access to a shared resource is described as:","answers":[{"result":true,"option":"Race condition","answerid":0},{"result":false,"option":"Buffer overflow","answerid":1},{"result":false,"option":"Memory leak","answerid":2},{"result":false,"option":"Pointer dereference","answerid":3}],"questid":93},{"type":"radio","question":"Which of the terms listed below refers to a software that no longer receives continuing support?","answers":[{"result":false,"option":"OEM","answerid":0},{"result":false,"option":"SDLC","answerid":1},{"result":true,"option":"EOL","answerid":2},{"result":false,"option":"SPoF","answerid":3}],"questid":94},{"type":"checkbox","question":"Which of the following factors pose the greatest risk for embedded systems? (Select 2 answers)","answers":[{"result":false,"option":"Lack of user training","answerid":0},{"result":true,"option":"Inadequate vendor support","answerid":1},{"result":false,"option":"System sprawl","answerid":2},{"result":true,"option":"Default configurations","answerid":3},{"result":false,"option":"Improper input handling","answerid":4}],"questid":95},{"type":"radio","question":"A situation in which a web form field accepts data other than expected (e.g. server commands) is an example of:","answers":[{"result":false,"option":"Zero-day vulnerability","answerid":0},{"result":true,"option":"Improper input validation","answerid":1},{"result":false,"option":"Default configuration","answerid":2},{"result":false,"option":"Improper error handling","answerid":3}],"questid":96},{"type":"radio","question":"After feeding an input form field with incorrect data, a hacker gets access to debugger info providing extensive description of the error. This situation is an example of:","answers":[{"result":false,"option":"Fuzz testing","answerid":0},{"result":false,"option":"Improper input handling","answerid":1},{"result":false,"option":"Brute-force attack","answerid":2},{"result":true,"option":"Improper error handling","answerid":3}],"questid":97},{"type":"radio","question":"A predefined username/password on a brand new wireless router is an example of:","answers":[{"result":true,"option":"Default configuration","answerid":0},{"result":false,"option":"Misconfiguration","answerid":1},{"result":false,"option":"Zero-day vulnerability","answerid":2},{"result":false,"option":"Architecture/design weakness","answerid":3}],"questid":98},{"type":"radio","question":"Which of the answers listed below describes the result of a successful DoS attack?","answers":[{"result":false,"option":"Code injection","answerid":0},{"result":true,"option":"Resource exhaustion","answerid":1},{"result":false,"option":"Identity theft","answerid":2},{"result":false,"option":"Privilege escalation","answerid":3}],"questid":99},{"type":"radio","question":"What is the best countermeasure against social engineering?","answers":[{"result":false,"option":"AAA protocols","answerid":0},{"result":false,"option":"User authentication","answerid":1},{"result":false,"option":"Strong passwords","answerid":2},{"result":true,"option":"User education","answerid":3}],"questid":100},{"type":"radio","question":"Which of the following violates the principle of least privilege?","answers":[{"result":false,"option":"Onboarding process","answerid":0},{"result":true,"option":"Improperly configured accounts","answerid":1},{"result":false,"option":"Shared accounts for privileged users","answerid":2},{"result":false,"option":"Time-of-day restrictions","answerid":3}],"questid":101},{"type":"radio","question":"An e-commerce store app running on an unpatched web server is an example of:","answers":[{"result":false,"option":"Architecture/design weakness","answerid":0},{"result":false,"option":"Risk acceptance","answerid":1},{"result":true,"option":"Vulnerable business process","answerid":2},{"result":false,"option":"Security through obscurity","answerid":3}],"questid":102},{"type":"radio","question":"The purpose of a downgrade attack is to make a computer system fall back to a weaker security mode which makes the system more vulnerable to attacks.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":103},{"type":"radio","question":"A situation in which an application fails to properly release memory allocated to it or continually requests more memory than it needs is called:","answers":[{"result":true,"option":"Memory leak","answerid":0},{"result":false,"option":"Buffer overflow","answerid":1},{"result":false,"option":"DLL injection","answerid":2},{"result":false,"option":"Integer overflow","answerid":3}],"questid":104},{"type":"radio","question":"Which of the terms listed below describes a programming error where an application tries to store a numeric value in a variable that is too small to hold it?","answers":[{"result":false,"option":"Buffer overflow","answerid":0},{"result":false,"option":"Pointer dereference","answerid":1},{"result":false,"option":"Memory leak","answerid":2},{"result":true,"option":"Integer overflow","answerid":3}],"questid":105},{"type":"radio","question":"A situation in which an application writes to or reads from an area of memory that it is not supposed to access is referred to as:","answers":[{"result":false,"option":"DLL injection","answerid":0},{"result":true,"option":"Buffer overflow","answerid":1},{"result":false,"option":"Memory leak","answerid":2},{"result":false,"option":"Integer overflow","answerid":3}],"questid":106},{"type":"radio","question":"Which of the following terms describes an attempt to read a variable that stores a null value?","answers":[{"result":false,"option":"Integer overflow","answerid":0},{"result":true,"option":"Pointer dereference","answerid":1},{"result":false,"option":"Buffer overflow","answerid":2},{"result":false,"option":"Memory leak","answerid":3}],"questid":107},{"type":"radio","question":"A collection of precompiled functions designed to be used by more than one Microsoft Windows application simultaneously to save system resources is known as:","answers":[{"result":true,"option":"DLL","answerid":0},{"result":false,"option":"ISO","answerid":1},{"result":false,"option":"EXE","answerid":2},{"result":false,"option":"INI","answerid":3}],"questid":108},{"type":"radio","question":"Which of the terms listed below describes a type of attack that relies on executing a library of code?","answers":[{"result":false,"option":"Memory leak","answerid":0},{"result":true,"option":"DLL injection","answerid":1},{"result":false,"option":"Pointer dereference","answerid":2},{"result":false,"option":"Buffer overflow","answerid":3}],"questid":109},{"type":"radio","question":"In the IT industry, the term 'System sprawl' is used to describe poor hardware resource utilization.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":110},{"type":"checkbox","question":"An effective asset management process provides countermeasures against: (Select all that apply)","answers":[{"result":true,"option":"System sprawl","answerid":0},{"result":false,"option":"Race conditions","answerid":1},{"result":true,"option":"Undocumented assets","answerid":2},{"result":true,"option":"Architecture and design weaknesses","answerid":3},{"result":false,"option":"User errors","answerid":4}],"questid":111},{"type":"radio","question":"Zero-day attack exploits:","answers":[{"result":false,"option":"New accounts","answerid":0},{"result":false,"option":"Patched software","answerid":1},{"result":true,"option":"Vulnerability that is present in already released software but unknown to the software developer","answerid":2},{"result":false,"option":"Well known vulnerability","answerid":3}],"questid":112},{"type":"radio","question":"A software or hardware that checks information coming from the Internet and depending on the applied configuration settings either blocks it or allows it to pass through is called:","answers":[{"result":false,"option":"Antivirus","answerid":0},{"result":true,"option":"Firewall","answerid":1},{"result":false,"option":"Antispyware","answerid":2},{"result":false,"option":"Malware","answerid":3}],"questid":113},{"type":"radio","question":"Which of the following applies to a request that doesn't match the criteria defined in an ACL?","answers":[{"result":false,"option":"Group policy","answerid":0},{"result":true,"option":"Implicit deny rule","answerid":1},{"result":false,"option":"Transitive trust","answerid":2},{"result":false,"option":"Context-aware authentication","answerid":3}],"questid":114},{"type":"radio","question":"Stateless inspection is a firewall technology that keeps track of network connections and based on the collected data determines which network packets should be allowed through the firewall.","answers":[{"result":false,"option":"True","answerid":0},{"result":true,"option":"False","answerid":1}],"questid":115},{"type":"radio","question":"Which of the answers listed below refers to a dedicated device for managing encrypted connections established over an untrusted network, such as the Internet?","answers":[{"result":true,"option":"VPN concentrator","answerid":0},{"result":false,"option":"Load balancer","answerid":1},{"result":false,"option":"Managed switch","answerid":2},{"result":false,"option":"Multilayer switch","answerid":3}],"questid":116},{"type":"radio","question":"VPNs can be either remote-access (used for connecting networks) or site-to-site (used for connecting a computer to a network).","answers":[{"result":false,"option":"True","answerid":0},{"result":true,"option":"False","answerid":1}],"questid":117},{"type":"radio","question":"Which of the IPsec modes provides entire packet encryption?","answers":[{"result":true,"option":"Tunnel","answerid":0},{"result":false,"option":"Payload","answerid":1},{"result":false,"option":"Transport","answerid":2},{"result":false,"option":"Default","answerid":3}],"questid":118},{"type":"radio","question":"An IPsec mode providing encryption only for the payload (the data part of the packet) is known as:","answers":[{"result":false,"option":"Protected mode","answerid":0},{"result":false,"option":"Tunnel mode","answerid":1},{"result":true,"option":"Transport mode","answerid":2},{"result":false,"option":"Safe mode","answerid":3}],"questid":119},{"type":"radio","question":"Which part of the IPsec protocol suite provides authentication and integrity?","answers":[{"result":false,"option":"CRC","answerid":0},{"result":true,"option":"AH","answerid":1},{"result":false,"option":"SIEM","answerid":2},{"result":false,"option":"AES","answerid":3}],"questid":120},{"type":"radio","question":"Which of the IPsec protocols provides authentication, integrity, and confidentiality?","answers":[{"result":false,"option":"AES","answerid":0},{"result":false,"option":"SHA","answerid":1},{"result":false,"option":"AH","answerid":2},{"result":true,"option":"ESP","answerid":3}],"questid":121},{"type":"radio","question":"Which of the terms listed below describes a type of VPN that alleviates bottlenecks and conserves bandwidth by allowing users simultaneously make use of both the VPN and public network links?","answers":[{"result":false,"option":"Tethering","answerid":0},{"result":true,"option":"Split tunnel","answerid":1},{"result":false,"option":"Load balancing","answerid":2},{"result":false,"option":"Full tunnel","answerid":3}],"questid":122},{"type":"checkbox","question":"Examples of secure VPN tunneling protocols include: (Select 2 answers)","answers":[{"result":false,"option":"bcrypt","answerid":0},{"result":false,"option":"SCP","answerid":1},{"result":true,"option":"IPsec","answerid":2},{"result":false,"option":"WEP","answerid":3},{"result":true,"option":"TLS","answerid":4}],"questid":123},{"type":"radio","question":"The term 'Always-on VPN' refers to a type of persistent VPN connection the starts automatically as soon as the computer detects a network link.","answers":[{"result":true,"option":"True","answerid":0},{"result":false,"option":"False","answerid":1}],"questid":124}];
+var test = [];
+
+function start(amount){
+	test = QuestSelect(shuffle(shuffle(questions)),amount);
+	$("#testReady").addClass("hidden");
+	$("#testContainer").removeClass("hidden");
+	test[0].selectedAnswers=[];
+	nextQuest(0)
+};
+
+function testResult(){
+	resultCounter=0;
+	totalPercentage=0;
+	totalPercentageCounter=0;
+	selectedCounter=0;
+	if($('input').length){
+		for(let i = 0; i< $('input').length; i++){
+			if($('input')[i].checked){
+				test[(Number(document.querySelector("#questid").innerText)-1)].selectedAnswers.push($('input')[i].value)
+			}
+		}
+	}
+	$("#testContainer").addClass("hidden");
+	var stringedQuestions="";
+	for(let index = 0; index < test.length; index++){
+		stringedQuestions += '<div class="qCard"><div class="cardHead"><h6>'
+		+ test[index].question 
+		+'</h6></div><div><ul class="cardAnswers">';
+		let answerCount=0;
+		let answerResult = true;
+		for(let indexx= 0; indexx <test[index].answers.length;indexx++){
+			function findResults(opt){return (opt==test[index].answers[indexx].answerid)}
+			if(test[index].selectedAnswers.find(findResults)!= undefined){
+				if(test[index].answers[indexx].result){
+					stringedQuestions += '<li class="correct"><input checked="true" ';
+					totalPercentage++;
+					totalPercentageCounter++;
+				}else{
+					stringedQuestions += '<li class="wrong"><input checked="true" ';
+					answerResult = false;
+					selectedCounter++;
+				}
+			}else if(test[index].answers[indexx].result){
+				stringedQuestions += '<li class="missed" ><input ';
+				answerResult = false;
+					totalPercentage++;
+			}else if(answerCount%2){
+				stringedQuestions += '<li class="even" ><input ';
+			}else{
+				stringedQuestions += '<li class="odd" ><input ';
+			}
+			answerCount++;
+			stringedQuestions += ' type="'
+			+ test[index].type 
+			+'" disabled="true"/>'
+			+test[index].answers[indexx].option+'</li>';
+		}
+		if(!answerResult){resultCounter++}
+		stringedQuestions += '</ul></div></div><br/>';
+	}
+		stringedQuestions += '<div class="qCard"><div class="cardHead"><h5>Final Results</h5></div><div><ul class="cardAnswers">'
+		+ '<li>Number of Questions: ' + test.length+'</li>'
+		+ '<li>Questions Incorrectly Answered: ' + (resultCounter) +'</li>'
+		+ '<li>Questions Correctly Answered: ' + (test.length-resultCounter) +'</li>'
+		+ '<li>Correct Percentage: ' + ((test.length-resultCounter)/test.length)*100 +'%</li>'
+		
+		+'</ul></div></div><br/>';
+	document.querySelector('#resultsReady').innerHTML = stringedQuestions;
+	$("#resultsReady").removeClass("hidden"); 
+	$("#guide").removeClass("hidden"); 
+}
+
+function nextQuest(nextQid){
+	if($('input').length){
+		for(let i = 0; i< $('input').length; i++){
+			if($('input')[i].checked){
+				test[(Number(document.querySelector("#questid").innerText)-1)].selectedAnswers.push($('input')[i].value)
+			}
+		}
+	}
+	let questionCard = "";
+	questionCard += '<div class="qCard"><div class="cardHead"><h6><span><span id="questid">'
+	+ (nextQid+1)
+	+'</span>. &nbsp;</span>'
+	+ test[nextQid].question
+	+'</h6></div><div><ul class="cardAnswers">'
+	for(let ii =0; ii < test[nextQid].answers.length;ii++){
+	questionCard += '<li > <input type="'
+	+ test[nextQid].type 
+	+ '" value="'
+	+test[nextQid].answers[ii].answerid;
+	function findSelected(opt){return (opt==test[nextQid].answers[ii].answerid)}
+	if(test[nextQid].selectedAnswers){
+		if(test[nextQid].selectedAnswers.find(findSelected)!= undefined){
+			questionCard += '" checked="checked';
+		}
+	}
+	questionCard += '" name="answer"> '
+	+test[nextQid].answers[ii].option+'</input></li>';
+	}
+	questionCard += '</ul></div><table class="questionNav"><tbody><tr><td class="righted">'
+	if(nextQid != 0){
+		questionCard += '<button class="btn btn-warning" onclick="nextQuest('
+		+ (Number(document.querySelector("#questid").innerText)-1)
+		+ ')">Previous</button>';
+	}
+	questionCard += '</td><td>';
+	console.log(test.length-1);
+	if(nextQid == test.length-1){
+		questionCard += '<button class="btn btn-success" onclick="testResult()">Finish</button>';
+	}else{
+		questionCard += '<button class="btn btn-success" onclick="nextQuest('
+		+ (nextQid+1)
+		+ ')">Next</button>';
+	}
+	questionCard += '</td></tr></tbody></table>';
+	document.querySelector("#testContainer").innerHTML = questionCard;
+	test[nextQid].selectedAnswers=[];
+	
+}
+
+function shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+    return array;
+}
+function QuestSelect(array, amount) {
+	let randomed = []
+	if(typeof amount == "number"){
+		for(var i = 0; i < amount; i++){
+			array[i].selectedAnswers=[];
+			randomed.push(array[i])
+		}
+	}else{randomed = array}
+	return randomed;
+}
+function ShowInfo(){
+	if(!$("#testReady").hasClass("hidden")){$("#testReady").addClass("hidden");}
+	if(!$("#testContainer").hasClass("hidden")){$("#testContainer").addClass("hidden");}
+	if(!$("#resultsReady").hasClass("hidden")){$("#resultsReady").addClass("hidden");}
+	if(!$("#questContainer").hasClass("hidden")){$("#questContainer").addClass("hidden");}
+	if(!$("#guide").hasClass("hidden")){$("#guide").addClass("hidden");}
+	$("#questContainer").removeClass("hidden");
+	var stringedQuestions="";
+	for(let index = 0; index < questions.length; index++){
+		stringedQuestions += '<div class="qCard"><div class="cardHead"><h6>'
+		+ questions[index].question 
+		+'</h6></div><div><ul class="cardAnswers">';
+		let answerCount=0
+		for(let indexx= 0; indexx <questions[index].answers.length;indexx++){
+			if(questions[index].answers[indexx].result){
+				if(answerCount%2){					
+					stringedQuestions += '<li class="even" >'+questions[index].answers[indexx].option+'</li>';
+				}else{					
+					stringedQuestions += '<li class="odd" >'+questions[index].answers[indexx].option+'</li>';
+				}
+				answerCount++;
+			}
+		}
+		stringedQuestions += '</ul></div></div><br/>';
+	}
+	document.querySelector('#questContainer').innerHTML = stringedQuestions;
+}
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})</script>
+<style>body{
+background-color:#29cece;
+color:white;
+}
+.mainContainer{
+background-color:white;
+color:black;
+width:100%;
+height:100%;
+Margin:auto;
+}
+.mained{
+	background-color:white;
+	padding:5px;
+}
+.mained h2, .mained button{
+	text-align:center;
+	margin:auto;
+}
+.mained li{
+	list-style-type:none;
+	
+}
+.cardHead{
+background-color:LightCyan;
+padding:10px;
+}
+.cardAnswers{
+padding:15px;
+}
+li.even{
+background-color:WhiteSmoke;	
+}
+li{
+padding:3px 5px 3px 15px;	
+}
+.qCard{
+	border:2px solid #1111aa;
+	min-width:600px;
+	width:80%;
+	margin:auto;
+	padding:0px;
+}
+.header{
+	padding: 15px 15px 15px 15px;
+	margin:auto;
+	text-align:center;
+}
+.questionNav, #guide table{
+	width:100%;
+}
+.questionNav td{
+	width:50%
+}
+.questionNav .btn{
+	margin:10px;
+}
+.righted{
+	text-align:right;
+}
+.nav{
+	display:inline-block;
+	Padding:10px 10px 10px 10px ;
+	text-align:center;
+	cursor:pointer;
+}
+#guide{
+	width:100%;
+	position:fixed;
+	bottom:0px;
+}
+#guide td{
+	text-align:center;
+	color:black;
+	
+}
+.hidden{
+	display:none;
+}
+.correct{
+background-color:SpringGreen;
+}
+.wrong{
+background-color:DarkSalmon;
+}
+.missed{
+background-color:khaki;
+}</style>
+</head>
+<body>
+<div class="head"><div><h1 class="header">Security + SY0-501</h1></div>
+<div class="navbar">
+<div class="nav" data-toggle="tooltip" data-placement="top" title="Take a Practice Test" onclick="window.location='info.html'">Practice Test</div>
+<div class="nav" data-toggle="tooltip" data-placement="top" title="Review Information" onclick="ShowInfo()">Information</div></div>
+</div>
+<div class="mainContainer"><br/>
+<div class="mained" id="testReady">
+<h2>Are you ready for a practice test?<h2><br/>
+<button class="btn btn-success" onclick="start(25)">25 Questions</button>
+<button class="btn btn-success" onclick="start(50)">50 Questions</button>
+<button class="btn btn-success" onclick="start(100)">100 Questions</button>
+<button class="btn btn-success" onclick="start('All')">All</button>
+</div>
+<div class="mained hidden" id="testContainer">
+</div>
+
+<div class="mained hidden" id="resultsReady">
+</div>
+
+<div class="mained hidden" id="questContainer"></div>
+<br/><br/>
+<div id="guide" class="hidden">
+<table><tbody><tr>
+<td class="wrong">Wrong Answer</td>
+<td class="correct">Correct Answer</td>
+<td class="missed">Missed Answer</td>
+</tr></tbody></table>
+</div>
+</body>
+</html>

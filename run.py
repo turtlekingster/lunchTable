@@ -11,17 +11,8 @@ import users
 app = Flask(__name__, static_url_path='')
 app.secret_key = 'SHH!'
 
-class ExampleForm(FlaskForm):
-    dateTimeWidget = DateTimeInput()
-    startField = DateTimeField('DateTimePicker', format='%Y-%m-%d %H:%M:%S', widget=dateTimeWidget)
-    endField = DateTimeField('DateTimePicker', format='%Y-%m-%d %H:%M:%S')
-    locField =  StringField('Location')
-    description = TextAreaField('Description')
-    rating = DecimalField('Rating', places=1)
-
 class LunchCheckoutForm(FlaskForm):
     checkout = SubmitField('Checkout')
-
 
 class LunchCheckinForm(FlaskForm):
     locField = StringField('Location')
@@ -122,7 +113,7 @@ def main():
     for entry in tableContents:
         print str(entry[7]) + ":" + usrHelper.getUser(_id=entry[7]).name
     return render_template('layout.html', table_header=t_headers, inform=checkinForm, 
-            outform=checkoutForm, atLunch=user.atLunch, tableContent = tableContents)
+            outform=checkoutForm, atLunch=user.atLunch, tableContent = tableContents, page_name="Lunch")
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
@@ -167,7 +158,10 @@ def login():
 @app.route("/users", methods=['POST','GET'])
 def userTest():
     usrHelper = users.userHelper()
+    newUserForm = NewUserForm()
+    
 
+    return render_template('layout.html', table_headers= , tableContent= , isAdmin=admin, newUserForm=, page_name="Users", )
 
 
 @app.route("/static/<path:filename>")

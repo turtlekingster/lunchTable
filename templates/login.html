@@ -14,12 +14,6 @@
 		<p>Login Failed!</p>
 	{% endif %}
 	<br>
-	<form action='#' method="POST">
-		{{ newUserForm.username(placeholder="Username") }}
-		{{ newUserForm.password(placeholder="Password") }}
-		{{ newUserForm.email(class="form-control", placeholder="Email") }}
-		{{ newUserForm.create() }}
-
 {% endblock %}
 </body>
 </html>

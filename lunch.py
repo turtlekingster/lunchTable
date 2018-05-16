@@ -81,4 +81,5 @@ class lunchness(dbhelper):
             return Lunch(_id, start, end, location, description, calories, rating, user_id, cost)
         return 0
 
-        
+    def __del__(self):
+        dbhelper.__del__(self)
