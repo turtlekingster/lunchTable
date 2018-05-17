@@ -1,6 +1,5 @@
 {# extends "table.html" #}
 {% block form %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 </script>
 	{% if not atLunch %}
@@ -15,7 +14,7 @@
 			{{ inform.rating(placeholder="Rating") }}
 			{{ inform.calories(placeholder="Calories") }}
 			{{ inform.cost(placeholder="Cost") }}
-			
+
 		</form>
 	{% endif %}
 {% endblock %}
