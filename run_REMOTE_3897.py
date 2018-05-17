@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from flask import Flask, render_template, request, flash, session, redirect, url_for, send_from_directory
 from flask_wtf import FlaskForm
-#from wtformfields.html5 import DateTimeField
+#from wtforms.fields.html5 import DateTimeField
 #from wtforms.widgets.html5 import DateTimeInput
 from wtforms.fields import TextAreaField, StringField, DecimalField, SubmitField, PasswordField, IntegerField
 from functools import wraps
@@ -30,7 +30,6 @@ class NewUserForm(FlaskForm):
     username = StringField('Name')
     password = PasswordField('Password')
     email = StringField('Email')
-    group = StringField('Group')
     create = SubmitField('Create')
 
 usrHelper = users.userHelper()
@@ -39,10 +38,11 @@ lunchHelper = lunch.lunchness()
 def login_required(function_to_protect):
     @wraps(function_to_protect)
     def wrapper(*args, **kwargs):
+        userHelper = users.userHelper()
         user_id = session.get('user_id')
         print user_id
         if user_id:
-            user = usrHelper.getUser(_id = user_id)
+            user = userHelper.getUser(_id = user_id)
             if user:
                 # Success!
                 return function_to_protect(*args, **kwargs)
@@ -106,13 +106,10 @@ def main():
         print "GET REQUEST"
 
     tableContents = lunchHelper.getEndedLunches()
-    contents = [list(x) for x in tableContents]
-    for entry in contents:
-        entry[7] = usrHelper.getUser(_id=entry[7]).name
-
-
-    return render_template('layout.html', table_header=t_headers, inform=checkinForm, 
-            outform=checkoutForm, atLunch=user.atLunch, tableContent = contents, page_name="Lunch")
+    for entry in tableContents:
+        print str(entry[7]) + ":" + usrHelper.getUser(_id=entry[7]).name
+    return render_template('layout.html', table_header=t_headers, inform=checkinForm,
+            outform=checkoutForm, atLunch=user.atLunch, tableContent = tableContents)
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
@@ -156,46 +153,8 @@ def login():
 
 @app.route("/users", methods=['POST','GET'])
 def userTest():
-    acceptableHeads = ['name','description','email','atLunch','usergroup'] #for ommiting coloumns upon display
-    newUserForm = NewUserForm()
-    columnNames = usrHelper.getColumnNames()
-    user = usrHelper.getUser(_id=str(session['user_id']))
-    admin = usrHelper.groups.getGroup(user.group).priv == 0 
-    #this zero is code for admin one is standard user -1 to -9 and 2 to 9 are undefined privledges
+    usrHelper = users.userHelper()
 
-    #print columnNames
-    t_headers = []
-    acceptableBodies = []
-    i = 0
-    for item in columnNames:
-        head = item[0]
-        if head in acceptableHeads:
-            t_headers.append(head)
-            acceptableBodies.append(i) #track columns that will be kept
-        i = i + 1
-
-    #print t_headers
-
-    tableContents = usrHelper.getAllUsers()
-    contents = [list(x) for x in tableContents]
-    for entry in contents:
-        entry[6] = usrHelper.groups.getGroup(entry[6]).name # replace groupid with group name
-       #remove unwanted column data for table
-        i = 0
-        j = len(entry)
-        ab = acceptableBodies
-        while i < j:
-            #print entry
-            if i not in ab:
-                #print str(i) + ": " + str(entry[i])
-                del entry[i]
-                ab = [x - 1 for x in ab]
-                j = j - 1
-            i = i + 1
-       #-----------------------------------#
-
-    return render_template('layout.html', table_header=t_headers , tableContent=contents,
-            isAdmin=admin, newUserForm=newUserForm, page_name="Users")
 
 
 @app.route("/static/<path:filename>")
@@ -206,4 +165,4 @@ def getStatic(filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, ssl_context='adhoc')
+    app.run(debug=True)

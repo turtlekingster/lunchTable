@@ -74,7 +74,10 @@ class userHelper(dbhelper):
         self.tableName = "users"
         self.dbName = "lunch"
         dbhelper.__init__(self,"localhost", self.dbName, "justin", "0828")
-        groups = groupHelper()
+        self.groups = groupHelper()
+
+    def getAllUsers(self):
+        return dbhelper.getTableContents(self, self.tableName, "*")
 
     def getUser(self, name="", email="", _id=-1):
         entry = []
@@ -107,7 +110,7 @@ class userHelper(dbhelper):
         valueNames = ["name", "description", "password", "email", "atLunch", "usergroup"]
         values = ["'" + user.name + "'","'" + user.desc + "'","'" + user._hash + "'",
                 "'" + user.email + "'","'" + str(int(user.atLunch)) +"'", "'" + str(user.group) + "'"]
-        dbhelper.insertIntoTable(self, "users", valueNames, values)
+        dbhelper.insertIntoTable(self, self.tableName, valueNames, values)
 
     def updateUser(self, user):
         if not isinstance(user, User):
@@ -118,10 +121,13 @@ class userHelper(dbhelper):
             valueNames = ["id", "name", "description", "password", "email", "atLunch", "usergroup"]
             values = ["'" + str(user._id) + "'", "'" + user.name + "'","'" + user.desc + "'",
                     "'" + user._hash + "'","'" + user.email + "'","'" + str(int(user.atLunch)) +"'", "'" + str(user.group) + "'"]
-            dbhelper.updateEntry(self, "users", valueNames, values)
+            dbhelper.updateEntry(self, self.tableName, valueNames, values)
         except Exception, e:
             print "-------In updateUser:"
             print e
+
+    def getColumnNames(self):
+        return dbhelper.getColumnNames(self, self.tableName)
 
     def __del__(self):
         dbhelper.__del__(self)
