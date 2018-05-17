@@ -4,6 +4,7 @@
 </head>
 
 <body>
+<div class="container">
 {% block login %}
 	<form action='#' method="POST">
 		{{ loginForm.username(placeholder="Username")}}
@@ -15,5 +16,6 @@
 	{% endif %}
 	<br>
 {% endblock %}
+</div>
 </body>
 </html>
