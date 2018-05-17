@@ -4,6 +4,7 @@
 </head>
 
 <body>
+<div class="container">
 {% block login %}
 	<form action='#' method="POST">
 		{{ loginForm.username(placeholder="Username")}}
@@ -21,5 +22,6 @@
 		{{ newUserForm.create() }}
 
 {% endblock %}
+</div>
 </body>
 </html>

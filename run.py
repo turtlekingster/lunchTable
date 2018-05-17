@@ -1,27 +1,17 @@
 #!/usr/bin/python
 from flask import Flask, render_template, request, flash, session, redirect, url_for, send_from_directory
 from flask_wtf import FlaskForm
-from wtforms.fields.html5 import DateTimeField
-from wtforms.widgets.html5 import DateTimeInput
+#from wtforms.fields.html5 import DateTimeField
+#from wtforms.widgets.html5 import DateTimeInput
 from wtforms.fields import TextAreaField, StringField, DecimalField, SubmitField, PasswordField, IntegerField
-from datetime import datetime
 from functools import wraps
 import lunch
 import users
 app = Flask(__name__, static_url_path='')
 app.secret_key = 'SHH!'
 
-class ExampleForm(FlaskForm):
-    dateTimeWidget = DateTimeInput()
-    startField = DateTimeField('DateTimePicker', format='%Y-%m-%d %H:%M:%S', widget=dateTimeWidget)
-    endField = DateTimeField('DateTimePicker', format='%Y-%m-%d %H:%M:%S')
-    locField =  StringField('Location')
-    description = TextAreaField('Description')
-    rating = DecimalField('Rating', places=1)
-
 class LunchCheckoutForm(FlaskForm):
     checkout = SubmitField('Checkout')
-
 
 class LunchCheckinForm(FlaskForm):
     locField = StringField('Location')
@@ -41,9 +31,9 @@ class NewUserForm(FlaskForm):
     password = PasswordField('Password')
     email = StringField('Email')
     create = SubmitField('Create')
-    
+
 usrHelper = users.userHelper()
-lunchHelper = lunch.lunchness() 
+lunchHelper = lunch.lunchness()
 
 def login_required(function_to_protect):
     @wraps(function_to_protect)
@@ -67,7 +57,7 @@ def login_required(function_to_protect):
 @app.route("/main", methods=['POST', 'GET'])
 @login_required
 def main():
-    
+
     columnNames = lunchHelper.getColumnNames()
     user = usrHelper.getUser(_id=str(session['user_id']))
 
@@ -92,8 +82,8 @@ def main():
                 print user.name + " is already at lunch!"
             else:
                 print user.name + ' just checkedout'
-                outTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                lunchTemp = lunch.Lunch(start = outTime, user_id=str(session['user_id']))
+                lunchTemp = lunch.Lunch(user_id=str(session['user_id']))
+                lunchTemp.setStart()
                 check = lunchHelper.insertIntoTable(lunchTemp)
                 user = usrHelper.getUser(_id=str(session['user_id']))
                 user.checkOut()
@@ -104,12 +94,9 @@ def main():
                 print user.name + " isn't at lunch!"
             else:
                 print user.name + ' just checkedin'
-                inTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 lunchTemp = lunchHelper.getUnendedLunch(str(session['user_id']))
-                print str(type(lunchTemp))
-                print lunchTemp
                 if(lunchTemp):
-                    lunchTemp.checkIn(request.form["locField"], request.form["description"], 
+                    lunchTemp.checkIn(request.form["locField"], request.form["description"],
                         request.form["calories"], request.form["rating"], request.form["cost"])
                     lunchHelper.updateLunch(lunchTemp)
                     user.checkIn()
@@ -121,7 +108,7 @@ def main():
     tableContents = lunchHelper.getEndedLunches()
     for entry in tableContents:
         print str(entry[7]) + ":" + usrHelper.getUser(_id=entry[7]).name
-    return render_template('layout.html', table_header=t_headers, inform=checkinForm, 
+    return render_template('layout.html', table_header=t_headers, inform=checkinForm,
             outform=checkoutForm, atLunch=user.atLunch, tableContent = tableContents)
 
 @app.route("/login", methods=['POST', 'GET'])
@@ -130,7 +117,7 @@ def login():
     newUserForm = NewUserForm()
     loginFailed=False
     session['user_id'] = 0
-    response = render_template('login.html', loginForm=loginForm, 
+    response = render_template('login.html', loginForm=loginForm,
             newUserForm=newUserForm, failed = loginFailed)
 
     if request.method == 'POST':
@@ -159,7 +146,7 @@ def login():
                 loginFailed = True
                 print "invalid password"
             if loginFailed:
-                response = render_template('login.html', loginForm=loginForm, 
+                response = render_template('login.html', loginForm=loginForm,
                         newUserForm=newUserForm, failed = loginFailed)
 
     return response
