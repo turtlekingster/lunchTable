@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, flash, session, redirect, url
 from flask_wtf import FlaskForm
 #from wtformfields.html5 import DateTimeField
 #from wtforms.widgets.html5 import DateTimeInput
-from wtforms.fields import TextAreaField, StringField, DecimalField, SubmitField, PasswordField, IntegerField
+from wtforms.fields import TextAreaField, StringField, DecimalField, SubmitField, PasswordField, IntegerField, SelectField
 from functools import wraps
 import lunch
 import users
@@ -30,7 +30,7 @@ class NewUserForm(FlaskForm):
     username = StringField('Name')
     password = PasswordField('Password')
     email = StringField('Email')
-    group = StringField('Group')
+    group = SelectField('Group', coerce=int)
     create = SubmitField('Create')
 
 usrHelper = users.userHelper()
@@ -125,32 +125,22 @@ def login():
 
     if request.method == 'POST':
         username = request.form["username"]
-        password = request.form["password"]
-        if 'email' in request.values:
-            user = usrHelper.getUser(username)
-            if not user:
-                email = request.form["email"]
-                user = users.User(name=username, _hash=password, email=email)
-                user.hashpw()
-                usrHelper.addUser(user)
-            else:
-                print "user already exists"
+        password = request.form["password"] 
+        user = usrHelper.getUser(str(username))
+        if not user:
+            loginFailed = True
+            print "invalid username"
+        elif(user.auth(password)):
+            print "valid password"
+            response = redirect(url_for("main"))
+            session['user_id'] = user._id
+            print session.get('user_id')
         else:
-            user = usrHelper.getUser(str(username))
-            if not user:
-                loginFailed = True
-                print "invalid username"
-            elif(user.auth(password)):
-                print "valid password"
-                response = redirect(url_for("main"))
-                session['user_id'] = user._id
-                print session.get('user_id')
-            else:
-                loginFailed = True
-                print "invalid password"
-            if loginFailed:
-                response = render_template('login.html', loginForm=loginForm,
-                        newUserForm=newUserForm, failed = loginFailed)
+            loginFailed = True
+            print "invalid password"
+        if loginFailed:
+            response = render_template('login.html', loginForm=loginForm,
+                    newUserForm=newUserForm, failed = loginFailed)
 
     return response
 
@@ -160,8 +150,32 @@ def userTest():
     newUserForm = NewUserForm()
     columnNames = usrHelper.getColumnNames()
     user = usrHelper.getUser(_id=str(session['user_id']))
-    admin = usrHelper.groups.getGroup(user.group).priv == 0 
+    admin = usrHelper.groups.getGroup(int(user.group)).priv == 0 
     #this zero is code for admin one is standard user -1 to -9 and 2 to 9 are undefined privledges
+
+    try:
+        username = request.form["username"]
+        password = request.form["password"]
+        print request.values
+        if 'email' in request.values:
+            user = usrHelper.getUser(username)
+            if not user:
+                group_id = request.form["group"]
+                print group_id
+                group = usrHelper.groups.getGroup(int(group_id))
+                if group:
+                    email = request.form["email"]
+                    user = users.User(name=username, _hash=password, email=email, group=group._id)
+                    user.hashpw()
+                    usrHelper.addUser(user)
+                else:
+                    print "Undefined group"
+            else:
+                print "user already exists"
+    except Exception, e:
+        print e
+
+    newUserForm.group.choices = [(group._id, group.name) for group in usrHelper.groups.getGroups()]
 
     #print columnNames
     t_headers = []
@@ -179,7 +193,7 @@ def userTest():
     tableContents = usrHelper.getAllUsers()
     contents = [list(x) for x in tableContents]
     for entry in contents:
-        entry[6] = usrHelper.groups.getGroup(entry[6]).name # replace groupid with group name
+        entry[6] = usrHelper.groups.getGroup(int(entry[6])).name # replace groupid with group name
        #remove unwanted column data for table
         i = 0
         j = len(entry)
@@ -193,7 +207,6 @@ def userTest():
                 j = j - 1
             i = i + 1
        #-----------------------------------#
-
     return render_template('layout.html', table_header=t_headers , tableContent=contents,
             isAdmin=admin, newUserForm=newUserForm, page_name="Users")
 
@@ -206,4 +219,4 @@ def getStatic(filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, ssl_context='adhoc')
+    app.run(debug=True, ssl_context=('certs/cert.pem','certs/key.pem'))

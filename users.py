@@ -48,6 +48,7 @@ class groupHelper(dbhelper):
         for entry in entries:
             self.groups.append(Group(entry[0], entry[1], entry[2]))
         self.lastID = self.groups[len(self.groups) - 1]._id
+        return self.groups
 
     def addGroup(self, name="", priv=9):
         self.lastID = self.lastID + 1
@@ -58,8 +59,14 @@ class groupHelper(dbhelper):
         self.getGroups(self)
 
     def getGroup(self, _id = -1, name = ""):
+        if type(_id) is not int:
+            raise TypeError('_id must be an int, _id is a ' + str(type(_id)))
+        if type(name) is not str:
+            raise TypeError('name must be a str, name is a ' + str(type(name)))
         if(_id != -1):
-            return self.groups[_id]
+            if _id > len(self.groups) or _id < -1:
+                raise ValueError("_id is out range with a value of:" + str(_id) + " range is 0 to " + str(len(self.groups)))
+            return self.groups[_id - 1]
         elif(name != ""):
             for group in self.groups:
                 if group.name == name:
