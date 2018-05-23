@@ -1,26 +1,26 @@
 {# extends "layout.html" #}
 {% block table %}
-	{% if page_name == "Lunch"%}
-		{% include "lunchform.html"%}
-	{% elif page_name == "Users"%}
-		{% include "userform.html"%}
-	{% endif %}
-	<h3>{{page_name}}</h3>
-	<br>
-	<table>
-		<tr>
-		{% for n in table_header %}
-			<th>{{n}}</th>
-		{% endfor %}
-		</tr>
-		{% for entry in tableContent %}
-			<tr>
-				{% for item in entry %}
-					<td>{{item}}</td>
-				{% endfor %}
-			</tr>
-		{% endfor %}
-	</table>
+    {% if page_name == "Lunch"%}
+        {% include "lunchform.html"%}
+    {% elif page_name == "Users"%}
+        {% include "userform.html"%}
+    {% endif %}
+    <h3>{{page_name}}</h3>
+    <br>
+    <table>
+        <tr>
+        {% for n in table_header %}
+            <th>{{n}}</th>
+        {% endfor %}
+        </tr>
+        {% for entry in tableContent %}
+            <tr>
+                {% for item in entry %}
+                    <td>{{item}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
 
 
 {% endblock %}

@@ -6,15 +6,15 @@
 <body>
 <div class="container">
 {% block login %}
-	<form action='#' method="POST">
-		{{ loginForm.username(placeholder="Username")}}
-		{{ loginForm.password(placeholder="Password")}}
-		{{ loginForm.login() }}
-	</form>
-	{% if failed %}
-		<p>Login Failed!</p>
-	{% endif %}
-	<br>
+    <form action='#' method="POST">
+        {{ loginForm.username(placeholder="Username")}}
+        {{ loginForm.password(placeholder="Password")}}
+        {{ loginForm.login() }}
+    </form>
+    {% if failed %}
+        <p>Login Failed!</p>
+    {% endif %}
+    <br>
 {% endblock %}
 </div>
 </body>

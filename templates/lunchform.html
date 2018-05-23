@@ -2,19 +2,18 @@
 {% block form %}
 <script>
 </script>
-	{% if not atLunch %}
-		<form action='#' method="POST">
-			{{ outform.checkout(class='btn btn-success')}}
-		</form>
-	{% else %}
-		<form action='#' method="POST">
-			{{ inform.checkin(class='btn btn-primary') }}
-			{{ inform.locField(placeholder="Location") }}
-			{{ inform.description(placeHolder="Description") }}
-			{{ inform.rating(placeholder="Rating") }}
-			{{ inform.calories(placeholder="Calories") }}
-			{{ inform.cost(placeholder="Cost") }}
-
-		</form>
-	{% endif %}
+    {% if not atLunch %}
+        <form action='#' method="POST">
+            {{ outform.checkout(class='btn btn-success')}}
+        </form>
+    {% else %}
+        <form action='#' method="POST">
+            {{ inform.checkin(class='btn btn-primary') }}
+            {{ inform.locField(placeholder="Location") }}
+            {{ inform.description(placeHolder="Description") }}
+            {{ inform.rating(placeholder="Rating") }}
+            {{ inform.calories(placeholder="Calories") }}
+            {{ inform.cost(placeholder="Cost") }}
+        </form>
+    {% endif %}
 {% endblock %}

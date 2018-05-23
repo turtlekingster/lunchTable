@@ -8,17 +8,17 @@
         <button type="button" class="navbar-toggle" data-toggle=
         "collapse" data-target=
         "#bs-example-navbar-collapse-1"><span class=
-	"sr-only">Toggle navigation</span></button><li class="active"> <a class=
-	"navbar-brand" href="/main">Lunch</a></li>
+    "sr-only">Toggle navigation</span></button><li class="active"> <a class=
+    "navbar-brand" href="/main">Lunch</a></li>
       </div>
       <div class="collapse navbar-collapse" id=
       "bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-	{% if page_name == "Users"%}
-	  <li class="active">
-	{% else %}
-	  <li>
-	{% endif %}
+    {% if page_name == "Users"%}
+    <li class="active">
+    {% else %}
+    <li>
+    {% endif %}
             <a href="/users">Users</a>
           </li>
         </ul>

@@ -3,13 +3,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 </script>
-	{% if isAdmin %}
-		<form action='#' method="POST">
-	                {{ newUserForm.username(placeholder="Username") }}
-	                {{ newUserForm.password(placeholder="Password") }}
-			{{ newUserForm.group(placeholder="Group")}}
-        	        {{ newUserForm.email(class="form-control", placeholder="Email") }}
-                	{{ newUserForm.create(class='btn btn-primary') }}
-		</form>
-	{% endif %}
+    {% if isAdmin %}
+        <form action='#' method="POST">
+                    {{ newUserForm.username(placeholder="Username") }}
+                    {{ newUserForm.password(placeholder="Password") }}
+            {{ newUserForm.group(placeholder="Group")}}
+                    {{ newUserForm.email(class="form-control", placeholder="Email") }}
+                    {{ newUserForm.create(class='btn btn-primary') }}
+        </form>
+    {% endif %}
 {% endblock %}
